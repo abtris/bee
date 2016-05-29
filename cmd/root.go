@@ -26,18 +26,18 @@ import (
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	log "github.com/Sirupsen/logrus"
 )
 
-var cfgFile string
+var cfgFile, apiHost string
+
+var Token string
 
 // RootCmd represents the base command when called without any subcommands
 var RootCmd = &cobra.Command{
-	Use:   "apiary-client-go",
-	Short: "The CLI for Apiary.io",
-	Long: `The Apiary CLI is a command line tool for developing
-	and previewing API Blueprint documents locally.
-	It can also be used for pushing updated documents to
-	and fetching existing documents from Apiary.io.`,
+	Use:   "bee",
+	Short: "Bee is CLI for Apiary.io",
+	Long: `Bee is a command line tool for publishing and fetching existing documents from Apiary.io.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	//	Run: func(cmd *cobra.Command, args []string) { },
@@ -59,10 +59,7 @@ func init() {
 	// Cobra supports Persistent Flags, which, if defined here,
 	// will be global for your application.
 
-	RootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.apiary.yaml)")
-	// Cobra also supports local flags, which will only run
-	// when this action is called directly.
-	RootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	RootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.bee.yaml)")
 }
 
 // initConfig reads in config file and ENV variables if set.
@@ -70,13 +67,17 @@ func initConfig() {
 	if cfgFile != "" { // enable ability to specify config file via flag
 		viper.SetConfigFile(cfgFile)
 	}
-
-	viper.SetConfigName(".apiary")					 // name of config file (without extension)
-	viper.AddConfigPath("$HOME")             // adding home directory as first search path
-	viper.AutomaticEnv()                     // read in environment variables that match
-
+	viper.SetConfigType("yaml") 	 // format config file
+	viper.SetConfigName(".bee") // name of config file (without extension)
+	viper.AddConfigPath("$HOME")   // adding home directory as first search path
+	viper.AutomaticEnv()           // read in environment variables that match
+	// set defaults
+	viper.SetDefault("APIARY_HOST", "https://api.apiary.io")
 	// If a config file is found, read it in.
 	if err := viper.ReadInConfig(); err == nil {
-		fmt.Println("Using config file:", viper.ConfigFileUsed())
+		log.Info("Using config file:", viper.ConfigFileUsed())
+	} else {
+		log.Info("No configuration file loaded - using defaults")
+		log.Debug(err)
 	}
 }

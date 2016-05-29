@@ -18,15 +18,30 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-package main
+package cmd
 
 import (
-	"github.com/abtris/bee/cmd"
-	log "github.com/Sirupsen/logrus"
+	"github.com/abtris/bee/common"
+	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 )
-func main() {
 
-	log.SetFormatter(&log.TextFormatter{})
-	log.SetLevel(log.DebugLevel)
-	cmd.Execute()
+// var subdomain, token, filename string
+
+// publishCmd represents the publish command
+var publishCmd = &cobra.Command{
+	Use:   "publish",
+	Short: "Publish API Description Document on docs.API_NAME.apiary.io",
+	Long: `Bee is a command line tool for publishing and fetching existing documents from Apiary.io.`,
+	Run: func(cmd *cobra.Command, args []string) {
+		if len(args) > 0 {
+			subdomain = args[0]
+			filename := args[1]
+			common.Publish(subdomain, filename, viper.GetString("APIARY_API_KEY"), viper.GetString("APIARY_HOST"))
+		}
+	},
+}
+
+func init() {
+	RootCmd.AddCommand(publishCmd)
 }
