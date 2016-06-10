@@ -7,15 +7,11 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
+	"net/url"
+	"os"
 )
 
 var subdomain, token, apiHost, apiKey string
-
-func check(e error) {
-	if e != nil {
-		panic(e)
-	}
-}
 
 type ClientResponse struct {
 	ErrorCode bool   `json:"error,omitempty"`
@@ -29,21 +25,25 @@ func Decode(r io.Reader) (x *ClientResponse, err error) {
 	return
 }
 
-func commonHeaders(req http.Request, token string) {
-	req.Header.Set("accept", "text/html")
-	req.Header.Set("content_type", "text/plain")
-	req.Header.Set("authentication", "Token "+token)
-	req.Header.Set("user_agent", "User Agent golang")
+func commonHeaders(req http.Request, token string, contentType string) {
+	req.Header.Set("Accept", "text/html")
+	req.Header.Set("Content-Type", contentType)
+	req.Header.Set("Authentication", "Token "+token)
+	req.Header.Set("User-Agent", "bee / golang")
 	return
 }
 
 func Fetch(subdomain string, token string, apiHost string) {
+	if len(token)== 0 {
+		fmt.Println("Missing APIARY_API_KEY")
+		os.Exit(1)
+	}
 
 	if len(subdomain) > 0 {
 		client := &http.Client{}
 		req, _ := http.NewRequest("GET", apiHost+"/blueprint/get/"+subdomain, nil)
 
-		commonHeaders(*req, token)
+		commonHeaders(*req, token, "text/plain")
 
 		res, _ := client.Do(req)
 		output, err := Decode(res.Body)
@@ -56,25 +56,35 @@ func Fetch(subdomain string, token string, apiHost string) {
 }
 
 func Publish(subdomain string, filename string, token string, apiHost string) {
+	if len(token)== 0 {
+		fmt.Println("Missing APIARY_API_KEY")
+		os.Exit(1)
+	}
 
 	data, err := ioutil.ReadFile(filename)
-	raw := bytes.NewReader(data)
 
-	if err != nil {
+	if err == nil {
 		if len(subdomain) > 0 {
 			client := &http.Client{}
-			req, _ := http.NewRequest("POST", apiHost+"/blueprint/publish/"+subdomain, raw)
 
-			commonHeaders(*req, token)
+			form := url.Values{}
+			form.Add("code", string(data))
+			form.Add("messageToSave", "Update")
 
+			req, _ := http.NewRequest("POST", apiHost+"/blueprint/publish/"+subdomain, bytes.NewBufferString(form.Encode()))
+			req.PostForm = form
+			commonHeaders(*req, token, "application/x-www-form-urlencoded")
 			res, _ := client.Do(req)
-			output, err := Decode(res.Body)
+			output, error := Decode(res.Body)
 			if err != nil {
-				fmt.Println("whoops:", err)
+				fmt.Println("whoops:", error)
 			}
-			fmt.Println(output.Code)
-			res.Body.Close()
+			defer res.Body.Close()
+			fmt.Println("Response Status:", res.Status)
+			fmt.Println("Response Headers:", res.Header)
 		}
+	} else {
+		fmt.Println("whoops:", err)
 	}
 
 }

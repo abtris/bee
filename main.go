@@ -27,6 +27,5 @@ import (
 func main() {
 
 	log.SetFormatter(&log.TextFormatter{})
-	log.SetLevel(log.DebugLevel)
 	cmd.Execute()
 }
