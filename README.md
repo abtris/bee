@@ -30,6 +30,9 @@ or
 bee publish <subdomain> filename
 ```
 
+## Debug - using proxy as [Charles](https://www.charlesproxy.com/)
+
+HTTP_PROXY=http://127.0.0.1:8888 bee fetch
 
 # TODO
 
