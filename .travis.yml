@@ -1,9 +1,14 @@
-sudo: false
+sudo: true
 language: go
 go:
 - 1.6
+before_install:
+  - sudo add-apt-repository ppa:masterminds/glide && sudo apt-get update
+  - sudo apt-get install glide
+before_script:
+  - glide install
 script:
-- make deps release
+  - make release
 deploy:
   provider: releases
   api_key:
