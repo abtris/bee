@@ -75,7 +75,7 @@ func Publish(subdomain string, filename string, token string, apiHost string) {
 			req.PostForm = form
 			commonHeaders(*req, token, "application/x-www-form-urlencoded")
 			res, _ := client.Do(req)
-			output, error := Decode(res.Body)
+			_, error := Decode(res.Body)
 			if err != nil {
 				fmt.Println("whoops:", error)
 			}
