@@ -1,4 +1,6 @@
 bee
 *.apib
 *.yml
+!glide.yml
+!.travis.yml
 glide
