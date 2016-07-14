@@ -15,13 +15,13 @@ deps: glide
 
 glide:
 ifeq ($(shell uname),Darwin)
-	curl -L https://github.com/Masterminds/glide/releases/download/0.5.0/glide-darwin-amd64.zip -o glide.zip
+	curl -L https://github.com/Masterminds/glide/releases/download/0.11.0/glide-darwin-amd64.zip -o glide.zip
 	unzip glide.zip
 	mv ./darwin-amd64/glide ./glide
 	rm -fr ./darwin-amd64
 	rm ./glide.zip
 else
-	curl -L https://github.com/Masterminds/glide/releases/download/0.5.0/glide-linux-386.zip -o glide.zip
+	curl -L https://github.com/Masterminds/glide/releases/download/0.11.0/glide-linux-386.zip -o glide.zip
 	unzip glide.zip
 	mv ./linux-386/glide ./glide
 	rm -fr ./linux-386
