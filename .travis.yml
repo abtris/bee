@@ -3,7 +3,7 @@ language: go
 go:
 - 1.6
 script:
-- make release
+- make deps release
 deploy:
   provider: releases
   api_key:
