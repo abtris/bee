@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/abtris/bee.svg?branch=master)](https://travis-ci.org/abtris/bee)
+
 # Bee
 
 Bee is a command line tool for publishing and fetching existing documents from Apiary.io.
