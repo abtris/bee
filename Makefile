@@ -1,6 +1,6 @@
 package = github.com/abtris/bee
 
-.PHONY: all clean deps fast release install
+.PHONY: all clean deps fast release push install
 
 all: bee
 
@@ -25,6 +25,11 @@ release:
 	GOOS=linux GOARCH=386 go build -o release/bee-linux-386 $(package)
 	GOOS=darwin GOARCH=amd64 go build -o release/bee-darwin-amd64 $(package)
 	GOOS=windows GOARCH=amd64 go build -o release/bee-windows-amd64 $(package)
+
+
+push:
+	git tag -a `cat VERSION`
+	git push origin `cat VERSION`
 
 install: deps
 	go install -ldflags "-X main.VERSION=`cat VERSION`" ./main.go
