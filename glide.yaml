@@ -1,14 +1,6 @@
 package: github.com/abtris/bee
 import:
-- package: bytes
-- package: encoding/json
-- package: fmt
 - package: github.com/Sirupsen/logrus
   version: ^0.10.0
 - package: github.com/spf13/cobra
 - package: github.com/spf13/viper
-- package: io
-- package: io/ioutil
-- package: net/http
-- package: net/url
-- package: os
