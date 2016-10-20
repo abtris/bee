@@ -25,7 +25,7 @@ func Decode(r io.Reader) (x *ClientResponse, err error) {
 	return
 }
 
-func commonHeaders(req http.Request, token string, contentType string) {
+func CommonHeaders(req http.Request, token string, contentType string) {
 	req.Header.Set("Accept", "text/html")
 	req.Header.Set("Content-Type", contentType)
 	req.Header.Set("Authentication", "Token "+token)
@@ -34,7 +34,7 @@ func commonHeaders(req http.Request, token string, contentType string) {
 }
 
 func Fetch(subdomain string, token string, apiHost string) {
-	if len(token)== 0 {
+	if len(token) == 0 {
 		fmt.Println("Missing APIARY_API_KEY")
 		os.Exit(1)
 	}
@@ -43,7 +43,7 @@ func Fetch(subdomain string, token string, apiHost string) {
 		client := &http.Client{}
 		req, _ := http.NewRequest("GET", apiHost+"/blueprint/get/"+subdomain, nil)
 
-		commonHeaders(*req, token, "text/plain")
+		CommonHeaders(*req, token, "text/plain")
 
 		res, _ := client.Do(req)
 		output, err := Decode(res.Body)
@@ -56,7 +56,7 @@ func Fetch(subdomain string, token string, apiHost string) {
 }
 
 func Publish(subdomain string, filename string, token string, apiHost string) {
-	if len(token)== 0 {
+	if len(token) == 0 {
 		fmt.Println("Missing APIARY_API_KEY")
 		os.Exit(1)
 	}
@@ -73,7 +73,7 @@ func Publish(subdomain string, filename string, token string, apiHost string) {
 
 			req, _ := http.NewRequest("POST", apiHost+"/blueprint/publish/"+subdomain, bytes.NewBufferString(form.Encode()))
 			req.PostForm = form
-			commonHeaders(*req, token, "application/x-www-form-urlencoded")
+			CommonHeaders(*req, token, "application/x-www-form-urlencoded")
 			res, _ := client.Do(req)
 			_, error := Decode(res.Body)
 			if err != nil {

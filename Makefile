@@ -10,6 +10,15 @@ bee: deps
 fast:
 	go build -i -ldflags "-X main.VERSION=`cat VERSION`-dev" -o ./build/bee ./main.go
 
+test:
+	go test ./common
+
+coverage:
+	go test -coverprofile=c.out ./common
+# go get golang.org/x/tools/cmd/cover
+coverage-report:
+	go tool cover -html=c.out -o coverage.html
+
 deps: glide
 	./glide install
 

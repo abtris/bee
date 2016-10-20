@@ -6,3 +6,5 @@ bee
 glide
 release
 vendor/
+c.out
+coverage.html
