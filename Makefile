@@ -19,6 +19,9 @@ coverage:
 coverage-report:
 	go tool cover -html=c.out -o coverage.html
 
+xunit:
+		2>&1 go test -v ./common | go2xunit -output tests.xml
+
 deps: glide
 	./glide install
 
