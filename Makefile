@@ -31,12 +31,15 @@ glide:
 clean:
 	rm -fr ./build
 
+build:
+	GOOS=$(goos) GOARCH=$(goarch) go build -o release/bee-$(goos)-$(goarch) $(package)
+
 release:
 	mkdir -p release
-	GOOS=linux GOARCH=amd64 go build -o release/bee-linux-amd64 $(package)
-	GOOS=linux GOARCH=386 go build -o release/bee-linux-386 $(package)
-	GOOS=darwin GOARCH=amd64 go build -o release/bee-darwin-amd64 $(package)
-	GOOS=windows GOARCH=amd64 go build -o release/bee-windows-amd64 $(package)
+	goos=linux goarch=amd64 make build
+	goos=linux goarch=386 make build
+	goos=darwin goarch=amd64 make build
+	goos=windows goarch=amd64 make build
 
 
 push:
