@@ -1,5 +1,5 @@
 pipeline {
-  agent docker:'node:6.3'
+  agent any
   environment {
     PACKAGE="github.com/abtris/bee"
     GOPATH="/Users/abtris/go"
