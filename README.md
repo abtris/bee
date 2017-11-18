@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/abtris/bee.svg?branch=master)](https://travis-ci.org/abtris/bee)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fabtris%2Fbee.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fabtris%2Fbee?ref=badge_shield)
 
 # Bee
 
@@ -60,3 +61,7 @@ HTTP_PROXY=http://127.0.0.1:8888 bee fetch
 
 - [] tests
 - [] docs
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fabtris%2Fbee.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fabtris%2Fbee?ref=badge_large)
