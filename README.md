@@ -58,11 +58,17 @@ bee publish <subdomain> filename
 
 HTTP_PROXY=http://127.0.0.1:8888 bee fetch
 
-# TODO
+# Release
 
-- [] tests
-- [] docs
 
+You need use [goreleaser](https://goreleaser.com/). For work need GITHUB_TOKEN with repo scope and installed goreleaser.
+
+```
+export GITHUB_TOKEN=XXXX
+git tag -a v1.1.0 -m "Release 1.1.0"
+git push origin v0.1.0
+goreleaser --rm-dist
+```
 
 ## License
 
