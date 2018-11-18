@@ -3,7 +3,6 @@ bee
 *.yml
 !glide.yml
 !.travis.yml
-glide
 release
 vendor/
 c.out

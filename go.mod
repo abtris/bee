@@ -6,6 +6,7 @@ require (
 	github.com/fsnotify/fsnotify v0.0.0-20160816051541-f12c6236fe7b // indirect
 	github.com/hashicorp/hcl v0.0.0-20160916130100-ef8133da8cda // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
+	github.com/konsorten/go-windows-terminal-sequences v1.0.1
 	github.com/kr/fs v0.0.0-20131111012553-2788f0dbd169 // indirect
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/magiconair/properties v0.0.0-20160908093658-0723e352fa35 // indirect
