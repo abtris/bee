@@ -65,8 +65,8 @@ You need use [goreleaser](https://goreleaser.com/). For work need GITHUB_TOKEN w
 
 ```
 export GITHUB_TOKEN=XXXX
-git tag -a v1.1.0 -m "Release 1.1.0"
-git push origin v0.1.0
+git tag -a v1.1.1 -m "Release 1.1.1"
+git push origin v1.1.1
 goreleaser --rm-dist
 ```
 
