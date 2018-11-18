@@ -2,7 +2,6 @@ pipeline {
   agent any
   environment {
     PACKAGE="github.com/abtris/bee"
-    GOPATH="/Users/abtris/go"
     GOROOT="/usr/local/opt/go/libexec"
   }
   stages {
@@ -13,7 +12,7 @@ pipeline {
      }
      stage('Deps') {
         steps {
-           sh 'glide --no-color install'
+           sh 'go get ./...'
            sh 'mkdir -p release'
        }
      }
