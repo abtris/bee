@@ -1,0 +1,16 @@
+# .goreleaser.yml
+# Build customization
+builds:
+  - binary: bee
+    goos:
+      - windows
+      - darwin
+      - linux
+    goarch:
+      - amd64
+sign:
+   artifacts: checksum
+changelog:
+  filters:
+    exclude:
+        - Merge pull request

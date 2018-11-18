@@ -7,16 +7,3 @@ before_script:
   - go get golang.org/x/tools/cmd/cover
 script:
   - make test
-  - make release
-deploy:
-  provider: releases
-  api_key:
-    secure: YLZRUFLfleF8esm5KpqfIJKYW9p3HTngol9RBIZYCOXPdGcbPkyT1FS8qi6g/XKV9oRcwyH+BXJbkYNez0DkVPTgWpJ0RFOryRcnTOa34Ui4205TMl45MDoLeF3hcpVGuMJI5/6mS08afXJVrsuvfaz1eCexJpdZ8j9nIi8zHcAQlCXBY3KPPmIch3JO4wMyelduDvaOTH7NakQNxhI3VhDDUtGgtHh/qoBYK/iYL7VD6dpWHyvg6nPwBH7IZnkdFBXVbRMLwogQ8NfNjNT/ITqO7hxtln9NdrXnAqlmJc6kDb9xXW/+kZfpiXba994l29D/A09NzkvL+/EGVTWNsRf3vrLhcY6/LM6EB76vWRMwjMkwrygKno5meJ07vUb3mO6N6O93z4CBrw9SmB6eLY3a2Gp5/o2+Y1cYdf4rLUDkdNfNT+uxp/95VPvXvjhSQ+fFci/9DQZam9FF0w9CodYtfp6Qf70Biz2LkeWix0AKOLNO0Boqvhxfmu0Mo5JoTdLyNMGoczl5Mzqaiv/VI+IeJUyJF+1W4PpxEmD7MRPiZfB9kzsdP+MEswitzFxT/oLRZsxa75yc8BF/F+RDU1tK1fR0Moix91ZF6pQZ0XO96ATc1HcVb3Zks2tQFjMZ0qm9FJbZCfHDcsW/J4QUTE7sWC9AEUOaH3BZBbRWzmc=
-  file:
-    - release/bee-linux-amd64
-    - release/bee-linux-386
-    - release/bee-darwin-amd64
-    - release/bee-windows-amd64
-  on:
-    repo: abtris/bee
-    tags: true
