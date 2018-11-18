@@ -1,6 +1,0 @@
-package: github.com/abtris/bee
-import:
-- package: github.com/Sirupsen/logrus
-  version: ^0.10.0
-- package: github.com/spf13/cobra
-- package: github.com/spf13/viper
