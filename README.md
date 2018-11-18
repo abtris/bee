@@ -6,6 +6,8 @@ Bee is a command line tool for publishing and fetching existing documents from A
 
 ## Install
 
+Need golang 1.11+ - deps using go modules
+
 ```
 go get github.com/abtris/bee
 ```
