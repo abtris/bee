@@ -24,9 +24,9 @@ import (
 	"fmt"
 	"os"
 
+	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	log "github.com/Sirupsen/logrus"
 )
 
 var cfgFile, apiHost string
@@ -37,7 +37,7 @@ var Token string
 var RootCmd = &cobra.Command{
 	Use:   "bee",
 	Short: "Bee is CLI for Apiary.io",
-	Long: `Bee is a command line tool for publishing and fetching existing documents from Apiary.io.`,
+	Long:  `Bee is a command line tool for publishing and fetching existing documents from Apiary.io.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	//	Run: func(cmd *cobra.Command, args []string) { },
@@ -67,10 +67,10 @@ func initConfig() {
 	if cfgFile != "" { // enable ability to specify config file via flag
 		viper.SetConfigFile(cfgFile)
 	}
-	viper.SetConfigType("yaml") 	 // format config file
-	viper.SetConfigName(".bee") // name of config file (without extension)
-	viper.AddConfigPath("$HOME")   // adding home directory as first search path
-	viper.AutomaticEnv()           // read in environment variables that match
+	viper.SetConfigType("yaml")  // format config file
+	viper.SetConfigName(".bee")  // name of config file (without extension)
+	viper.AddConfigPath("$HOME") // adding home directory as first search path
+	viper.AutomaticEnv()         // read in environment variables that match
 	// set defaults
 	viper.SetDefault("APIARY_HOST", "https://api.apiary.io")
 	// If a config file is found, read it in.

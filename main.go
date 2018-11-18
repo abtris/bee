@@ -22,8 +22,9 @@ package main
 
 import (
 	"github.com/abtris/bee/cmd"
-	log "github.com/Sirupsen/logrus"
+	log "github.com/sirupsen/logrus"
 )
+
 func main() {
 
 	log.SetFormatter(&log.TextFormatter{})
