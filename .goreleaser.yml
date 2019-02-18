@@ -1,5 +1,8 @@
 # .goreleaser.yml
 # Build customization
+before:
+  hooks:
+  - go mod download
 builds:
   - binary: bee
     goos:
