@@ -66,8 +66,9 @@ You need use [goreleaser](https://goreleaser.com/). For work need GITHUB_TOKEN w
 For release with Github Actions you need just tag.
 
 ```
+git checkout master
 git tag -a v1.1.1 -m "Release 1.1.1"
-git push origin v1.1.1
+git push --tags
 ```
 
 ## License
