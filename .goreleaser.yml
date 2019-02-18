@@ -4,16 +4,24 @@ before:
   hooks:
   - go mod download
 builds:
-  - binary: bee
-    goos:
-      - windows
-      - darwin
-      - linux
-    goarch:
-      - amd64
+- env:
+    - CGO_ENABLED=0
+  goos:
+    - windows
+    - darwin
+    - linux
+  goarch:
+    - amd64
+binary: bee
 sign:
-   artifacts: checksum
+  artifacts: checksum
+checksum:
+  name_template: '{{ .ProjectName }}_checksums.txt'
 changelog:
+  sort: asc
   filters:
     exclude:
-        - Merge pull request
+    - '^docs:'
+    - '^test:'
+    - Merge pull request
+    - Merge branch
