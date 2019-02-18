@@ -63,11 +63,11 @@ HTTP_PROXY=http://127.0.0.1:8888 bee fetch
 
 You need use [goreleaser](https://goreleaser.com/). For work need GITHUB_TOKEN with repo scope and installed goreleaser.
 
+For release with Github Actions you need just tag.
+
 ```
-export GITHUB_TOKEN=XXXX
 git tag -a v1.1.1 -m "Release 1.1.1"
 git push origin v1.1.1
-goreleaser --rm-dist
 ```
 
 ## License
