@@ -15,7 +15,7 @@ action "goreleaser" {
     "GITHUB_TOKEN"
   ]
   env = {
-    CGO_ENABLED = 0
+    CGO_ENABLED = "0",
     GO111MODULE = "ON"
   }
   args = "release"
