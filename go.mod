@@ -12,7 +12,7 @@ require (
 	github.com/pelletier/go-toml v0.0.0-20160920070715-45932ad32dfd // indirect
 	github.com/pkg/errors v0.0.0-20160916110212-a887431f7f6e // indirect
 	github.com/pkg/sftp v0.0.0-20160908100035-8197a2e58073 // indirect
-	github.com/sirupsen/logrus v1.4.2
+	github.com/sirupsen/logrus v1.6.0
 	github.com/spf13/afero v0.0.0-20160919210114-52e4a6cfac46 // indirect
 	github.com/spf13/cast v0.0.0-20160926084249-2580bc98dc0e // indirect
 	github.com/spf13/cobra v0.0.0-20160830174925-9c28e4bbd74e
