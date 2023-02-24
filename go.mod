@@ -1,25 +1,25 @@
 module github.com/abtris/bee
 
 require (
-	github.com/fsnotify/fsnotify v0.0.0-20160816051541-f12c6236fe7b // indirect
-	github.com/hashicorp/hcl v0.0.0-20160916130100-ef8133da8cda // indirect
-	github.com/inconshreveable/mousetrap v1.0.0 // indirect
-	github.com/kr/fs v0.0.0-20131111012553-2788f0dbd169 // indirect
-	github.com/kr/pretty v0.1.0 // indirect
-	github.com/magiconair/properties v0.0.0-20160908093658-0723e352fa35 // indirect
-	github.com/mitchellh/mapstructure v0.0.0-20160808181253-ca63d7c062ee // indirect
-	github.com/pelletier/go-buffruneio v0.1.0 // indirect
-	github.com/pelletier/go-toml v0.0.0-20160920070715-45932ad32dfd // indirect
-	github.com/pkg/errors v0.0.0-20160916110212-a887431f7f6e // indirect
-	github.com/pkg/sftp v0.0.0-20160908100035-8197a2e58073 // indirect
 	github.com/sirupsen/logrus v1.8.1
-	github.com/spf13/afero v0.0.0-20160919210114-52e4a6cfac46 // indirect
-	github.com/spf13/cast v0.0.0-20160926084249-2580bc98dc0e // indirect
 	github.com/spf13/cobra v0.0.0-20160830174925-9c28e4bbd74e
-	github.com/spf13/jwalterweatherman v0.0.0-20160311093646-33c24e77fb80 // indirect
-	github.com/spf13/pflag v0.0.0-20160915153101-c7e63cf4530b // indirect
-	github.com/spf13/viper v0.0.0-20160926150402-382f87b929b8
-	golang.org/x/text v0.0.0-20160922232553-a7c023693a94 // indirect
-	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
-	gopkg.in/yaml.v2 v2.0.0-20160912165603-31c299268d30 // indirect
+	github.com/spf13/viper v1.15.0
+)
+
+require (
+	github.com/fsnotify/fsnotify v1.6.0 // indirect
+	github.com/hashicorp/hcl v1.0.0 // indirect
+	github.com/inconshreveable/mousetrap v1.0.0 // indirect
+	github.com/magiconair/properties v1.8.7 // indirect
+	github.com/mitchellh/mapstructure v1.5.0 // indirect
+	github.com/pelletier/go-toml/v2 v2.0.6 // indirect
+	github.com/spf13/afero v1.9.3 // indirect
+	github.com/spf13/cast v1.5.0 // indirect
+	github.com/spf13/jwalterweatherman v1.1.0 // indirect
+	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/subosito/gotenv v1.4.2 // indirect
+	golang.org/x/sys v0.3.0 // indirect
+	golang.org/x/text v0.5.0 // indirect
+	gopkg.in/ini.v1 v1.67.0 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
